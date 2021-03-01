@@ -1,0 +1,10 @@
+.header-bg {
+  background-color: #000080;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: white;
+  border-bottom: solid;
+  border-color: red;
+  border-width: 5px;
+  text-align: center;
+}
