@@ -8,7 +8,8 @@ class SearchResultContainer extends Component {
     users: [],
     search: "",
     results: [],
-    whatToDisplay:""
+    display:"",
+    sort:"asc"
   };
 
   // When this component mounts, search the Random User API
@@ -38,17 +39,20 @@ class SearchResultContainer extends Component {
     
   };
 
-  // When the form is submitted, search the Random User API for `this.state.search`
+  // When the form is submitted, sets the search state
   handleFormSubmit = event => {
     event.preventDefault();
     console.log(event.target);
-    // this.searchEmployeeData(this.state.search);
+    
     const results = this.state.users.filter(user => {
       console.log('z',user.name.first.match(new RegExp(this.state.search, 'i')))
       return user.name.first.match(new RegExp(this.state.search, "i")) })
     this.setState({results: results}, ()=>{console.log('y', this.state)})
+
+    
   };
 
+  
   
   
   render() {
@@ -109,7 +113,7 @@ class SearchResultContainer extends Component {
         <tbody>
           {this.state.results.map(((user, i) => {
           
-          return  <ResultList 
+          return  <ResultList
             picture={user.picture.thumbnail}
             firstName={user.name.first}
             lastName={user.name.last}
@@ -120,11 +124,6 @@ class SearchResultContainer extends Component {
             }))}
         </tbody>
 
-            <br/>
-            <br/>
-            <br/>
-
-        
 
         </table>
 

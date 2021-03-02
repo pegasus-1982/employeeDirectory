@@ -4,7 +4,7 @@ import SearchResultContainer from "./components/SearchResultContainer";
 
 function App() {
   return (
-    <div class="container">
+    <div className="container">
       <Header/>
       <SearchResultContainer/>    
     </div>
