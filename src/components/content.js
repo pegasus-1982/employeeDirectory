@@ -1,4 +1,4 @@
-import React from 'react'
+/* import React from 'react'
 import API from '../utils/API';
 
 import Users from './user';
@@ -67,4 +67,4 @@ class Content extends React.Component {
 
 }
 
-export default Content;
+export default Content; */

@@ -3,15 +3,14 @@ import React from "react";
 function ResultList(props) {
   return (
     
-    <tbody>
-      {props.searchedResults.map(result => (
-        <tr className="list-group-item" key={result.id}>
-          
-          <td>{result.name.first}</td>
-          <td>{result.name.last}</td>
-        </tr>
-      ))}
-    </tbody>
+    <tr>
+      <td><img src={props.picture} alt={props.firstName}/></td>
+      <td>{props.firstName}</td>
+      <td>{props.lastName}</td>
+      <td><a href={props.email}>{props.email}</a></td>
+      <td>{props.phone}</td>
+      <td>{props.birthday}</td>
+    </tr>
   );
 }
 

@@ -1,4 +1,4 @@
-import React from 'react'
+/* import React from 'react'
 
 function User (props) {
 return(
@@ -16,4 +16,4 @@ return(
 
 }
 
-export default User;
+export default User; */
