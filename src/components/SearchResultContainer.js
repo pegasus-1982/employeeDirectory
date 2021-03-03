@@ -44,10 +44,10 @@ class SearchResultContainer extends Component {
     event.preventDefault();
     console.log(event.target);
     
-    const results = this.state.users.filter(user => {
-      console.log('z',user.name.first.match(new RegExp(this.state.search, 'i')))
-      return user.name.first.match(new RegExp(this.state.search, "i")) })
-    this.setState({results: results}, ()=>{console.log('y', this.state)})
+    // const results = this.state.users.filter(user => {
+    //   console.log('z',user.name.first.match(new RegExp(this.state.search, 'i')))
+    //   return user.name.first.match(new RegExp(this.state.search, "i")) })
+    // this.setState({results: results}, ()=>{console.log('y', this.state)})
 
     
   };
@@ -82,7 +82,10 @@ class SearchResultContainer extends Component {
           </thead>
 
           <tbody>
-            {this.state.users.map(((user, i) => {
+            {this.state.users.filter(user => {
+            console.log('z',user.name.first.match(new RegExp(this.state.search, 'i')))
+            return user.name.first.match(new RegExp(this.state.search, "i")) }).map(((user, i) => {
+            //change user.name.first.... use json.stringify(user)
             
             return  <ResultList 
               picture={user.picture.thumbnail}
@@ -97,35 +100,7 @@ class SearchResultContainer extends Component {
         
         </table>
        
-        <table className="table table-striped App">   
-
-        <thead>
-          <tr>
-            <th>Image</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>e-mail</th>
-            <th>Phone</th>
-            <th>Birthday</th>   
-          </tr>
-        </thead>
-
-        <tbody>
-          {this.state.results.map(((user, i) => {
-          
-          return  <ResultList
-            picture={user.picture.thumbnail}
-            firstName={user.name.first}
-            lastName={user.name.last}
-            email={user.email}
-            phone={user.phone}
-            birthday={user.dob.date}
-            key={i}/>
-            }))}
-        </tbody>
-
-
-        </table>
+       
 
       </div>
     );
