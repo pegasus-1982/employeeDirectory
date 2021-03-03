@@ -10,6 +10,7 @@ function ResultList(props) {
       <td><a href={props.email}>{props.email}</a></td>
       <td>{props.phone}</td>
       <td>{props.birthday}</td>
+      
     </tr>
   );
 }

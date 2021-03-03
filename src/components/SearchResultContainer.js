@@ -52,7 +52,21 @@ class SearchResultContainer extends Component {
     
   };
 
-  
+  handleSort = (event) => {
+    event.preventDefault()
+    const sortUsers = [...this.state.users];
+    if (this.state.sort === "asc") {
+      this.setState({sort: "dsc"})
+      sortUsers.sort((a, b) => a.email > b.email ? 1 : b.email > a.email ? -1 : 0
+      );
+    }
+    else{
+      this.setState({sort: "asc"})
+      sortUsers.sort((a, b) => a.email > b.email ? -1 : b.email > a.email ? 1 : 0
+      );
+    }
+    this.setState({users: sortUsers});
+  };
   
   
   render() {
@@ -83,8 +97,8 @@ class SearchResultContainer extends Component {
 
           <tbody>
             {this.state.users.filter(user => {
-            console.log('z',user.name.first.match(new RegExp(this.state.search, 'i')))
-            return user.name.first.match(new RegExp(this.state.search, "i")) }).map(((user, i) => {
+            console.log('z',JSON.stringify(user).match(new RegExp(this.state.search, 'i')))
+            return JSON.stringify(user).match(new RegExp(this.state.search, "i")) }).map(((user, i) => {
             //change user.name.first.... use json.stringify(user)
             
             return  <ResultList 
